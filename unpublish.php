@@ -47,7 +47,7 @@ class Unpublish {
 		$this->date_format    = get_option( 'date_format' );
 		$this->time_format    = get_option( 'time_format' );
 
-		$this->cron_frequency = 'twicedaily';
+		$this->cron_frequency = 'hourly';
 	}
 
 	/**
@@ -160,7 +160,7 @@ class Unpublish {
 
 	/**
 	 * Get a given view (if it exists)
-	 * 
+	 *
 	 * @param string     $view      The slug of the view
 	 * @return string
 	 */
