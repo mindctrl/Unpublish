@@ -132,7 +132,6 @@ class Unpublish {
 		}
 
 		$args = array(
-			'fields'          => 'ids',
 			'post_type'       => $post_types,
 			'post_status'     => 'publish',
 			'posts_per_page'  => 40,
@@ -153,7 +152,9 @@ class Unpublish {
 		$query = new WP_Query( $args );
 
 		foreach( $query->posts as $post_id ) {
-			wp_trash_post( $post_id );
+			$post['ID'] = $post_id->ID;
+			$post['post_status'] = 'draft';
+			wp_update_post( $post );
 		}
 
 	}
