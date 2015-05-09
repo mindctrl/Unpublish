@@ -134,7 +134,7 @@ class Unpublish {
 		$args = array(
 			'fields'          => 'ids',
 			'post_type'       => $post_types,
-			'post_status'     => 'any',
+			'post_status'     => 'publish',
 			'posts_per_page'  => 40,
 			'meta_query'      => array(
 				'relation' => 'AND',
