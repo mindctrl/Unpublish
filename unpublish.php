@@ -137,19 +137,19 @@ class Unpublish {
 			'post_status'     => 'any',
 			'posts_per_page'  => 40,
 			'meta_query'      => array(
+				'relation' => 'AND',
 				array(
-					'meta_key'    => self::$post_meta_key,
-					'meta_value'  => current_time( 'timestamp' ),
+					'key'    => self::$post_meta_key,
+					'value'  => current_time( 'timestamp' ),
 					'compare'     => '<',
 					'type'        => 'NUMERIC',
-					),
+				),
 				array(
-					'meta_key'    => self::$post_meta_key,
-					'meta_value'  => current_time( 'timestamp' ),
+					'key'    => self::$post_meta_key,
 					'compare'     => 'EXISTS',
-					)
 				)
-			);
+			)
+		);
 		$query = new WP_Query( $args );
 
 		foreach( $query->posts as $post_id ) {
