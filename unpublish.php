@@ -75,6 +75,7 @@ class Unpublish {
 		if ( post_type_supports( $post_type, self::$supports_key ) ) {
 			add_action( 'post_submitbox_misc_actions', array( self::$instance, 'render_unpublish_ui' ) );
 			add_action( 'save_' . $post_type, array( self::$instance, 'action_save_unpublish_timestamp' ) );
+			add_action( 'admin_enqueue_scripts', array( self::$instance, 'load_datepicker' ) );
 		}
 
 	}
@@ -117,6 +118,15 @@ class Unpublish {
 				delete_post_meta( $post_id, self::$post_meta_key );
 		}
 
+	}
+
+	/**
+	 * Load the datepicker script
+	 */
+	public function load_datepicker() {
+		wp_enqueue_script( 'jquery-ui-datetimepicker', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.datetimepicker.js', array( 'jquery') );
+		wp_enqueue_style( 'jquery-ui-datetimepicker', plugin_dir_url( __FILE__ ) . 'assets/css/jquery.datetimepicker.css' );
+		wp_enqueue_script( 'unpublish', plugin_dir_url( __FILE__ ) . 'assets/js/unpublish.js', array( 'jquery-ui-datetimepicker' ) );
 	}
 
 	/**
