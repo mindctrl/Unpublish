@@ -1,9 +1,9 @@
 === Unpublish ===
-Contributors: humanmade, danielbachhuber, pauldewouters
+Contributors: humanmade, danielbachhuber, pauldewouters, mindctrl
 Tags: unpublish, post, posts, publish, schedule, scheduling
-Requires at least: 3.0.1
-Tested up to: 3.8-alpha
-Stable tag: 0.1-alpha
+Requires at least: 4.2
+Tested up to: 4.2.2
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,12 @@ Yes, as long as you modify the code accordingly:
 1. The Post editor screen with the Unpublish setting
 
 == Changelog ==
+= 1.0 =
+* Now sets post status to draft instead of deleting.
+* Adds a date/time picker to the unpublish date field.
+* Changed the cron schedule to hourly.
+* Now works properly with custom post types.
+
 = 0.1-alpha =
 * Initial release.
 

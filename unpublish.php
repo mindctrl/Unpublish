@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Unpublish
-Version: 0.1-alpha
+Version: 1.0
 Description: Unpublish your content
 Author: Daniel Bachhuber, Human Made
 Author URI: http://hmn.md/
 Plugin URI: http://hmn.md/
+Contributors: mindctrl
 Text Domain: unpublish
 Domain Path: /languages
 */
@@ -148,14 +149,14 @@ class Unpublish {
 			'meta_query'      => array(
 				'relation' => 'AND',
 				array(
-					'key'    => self::$post_meta_key,
-					'value'  => current_time( 'timestamp' ),
-					'compare'     => '<',
-					'type'        => 'NUMERIC',
+					'key'     => self::$post_meta_key,
+					'value'   => current_time( 'timestamp' ),
+					'compare' => '<',
+					'type'    => 'NUMERIC',
 				),
 				array(
-					'key'    => self::$post_meta_key,
-					'compare'     => 'EXISTS',
+					'key'     => self::$post_meta_key,
+					'compare' => 'EXISTS',
 				)
 			)
 		);
